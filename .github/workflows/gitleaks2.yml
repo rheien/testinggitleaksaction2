@@ -1,6 +1,6 @@
 name: gitleaks with checkout@v2
 
-on: [pull_request]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   gitleaks:
