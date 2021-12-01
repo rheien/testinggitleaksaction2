@@ -11,3 +11,5 @@ jobs:
         fetch-depth: '2'
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
+      with:
+         config-path: rules.toml
