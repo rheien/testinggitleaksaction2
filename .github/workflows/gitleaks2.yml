@@ -1,6 +1,6 @@
 name: gitleaks with checkout@v2
 
-on: [push, pull_request, workflow_dispatch]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   gitleaks:
@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'beta'
+        #ref: 'beta'
         fetch-depth: '0'
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
