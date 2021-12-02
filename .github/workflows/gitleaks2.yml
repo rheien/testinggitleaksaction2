@@ -8,8 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: gamma
-        fetch-depth: '1'
+        fetch-depth: '0'
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
       with:
