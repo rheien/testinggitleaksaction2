@@ -10,11 +10,149 @@
           #tags = ["key", "Slack"]
 
 
-[allowlist]
-          description = "global allowlist. whitelisting paths"
-          paths = ['''test/*''']
 
 
 [[rules]]
           description = "testing_regex example"
           regex = '''[admin]-([0-9a-zA-Z]{5,10})?'''
+
+
+[[rules]]
+	description = "AWS Manager ID"
+	regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+	tags = ["key", "AWS"]
+[[rules]]
+	description = "AWS Secret Key"
+	regex = '''(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]'''
+	tags = ["key", "AWS"]
+[[rules]]
+	description = "AWS MWS key"
+	regex = '''amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
+	tags = ["key", "AWS", "MWS"]
+[[rules]]
+	id = "github-pat"
+	description = "Github Personal Access Token"
+	regex = '''ghp_[0-9a-zA-Z]{36}'''
+
+[[rules]]
+	id = "github-oauth"
+	description = "Github OAuth Access Token"
+	regex = '''gho_[0-9a-zA-Z]{36}'''
+
+[[rules]]
+	id = "SSH-DSA-PK"
+	description = "SSH (DSA) private key"
+	regex = '''-----BEGIN DSA PRIVATE KEY-----'''
+
+[[rules]]
+	id = "SSH-EC-PK"
+	description = "SSH (EC) private key"
+	regex = '''-----BEGIN EC PRIVATE KEY-----'''
+
+
+[[rules]]
+	id = "github-app-token"
+	description = "Github App Token"
+	regex = '''(ghu|ghs)_[0-9a-zA-Z]{36}'''
+
+[[rules]]
+	id = "github-refresh-token"
+	description = "Github Refresh Token"
+	regex = '''ghr_[0-9a-zA-Z]{76}'''
+	
+[[rules]]
+	id = "atlassian-api-token"
+	description = "Atlassian API token"
+	regex = '''(?i)(atlassian[a-z0-9_ .\-,]{0,25})(=|>|:=|\|\|:|<=|=>|:).{0,5}['\"]([a-z0-9]{24})['\"]'''
+
+[[rules]]
+	id = "bitbucket-client-id"
+	description = "Bitbucket client ID"
+	regex = '''(?i)(bitbucket[a-z0-9_ .\-,]{0,25})(=|>|:=|\|\|:|<=|=>|:).{0,5}['\"]([a-z0-9]{32})['\"]'''
+
+[[rules]]
+	description = "Bitbucket client secret"
+	regex = '''(?i)(bitbucket[a-z0-9_ .\-,]{0,25})(=|>|:=|\|\|:|<=|=>|:).{0,5}['\"]([a-z0-9_\-]{64})['\"]'''
+	
+[[rules]]
+	description = "Postman API token"
+	regex = '''PMAK-(?i)[a-f0-9]{24}\-[a-f0-9]{34}'''
+
+	
+[[rules]]
+	description = "Github"
+	regex = '''(?i)github(.{0,20})?(?-i)['\"][0-9a-zA-Z]{35,40}['\"]'''
+	tags = ["key", "Github"]
+[[rules]]
+	description = "LinkedIn Client ID"
+	regex = '''(?i)linkedin(.{0,20})?(?-i)['\"][0-9a-z]{12}['\"]'''
+	tags = ["client", "LinkedIn"]
+[[rules]]
+	description = "LinkedIn Secret Key"
+	regex = '''(?i)linkedin(.{0,20})?['\"][0-9a-z]{16}['\"]'''
+	tags = ["secret", "LinkedIn"]
+[[rules]]
+	description = "Slack"
+	regex = '''xox[baprs]-([0-9a-zA-Z]{10,48})?'''
+	tags = ["key", "Slack"]
+[[rules]]
+	description = "Asymmetric Private Key"
+	regex = '''-----BEGIN ((EC|PGP|DSA|RSA|OPENSSH) )?PRIVATE KEY( BLOCK)?-----'''
+	tags = ["key", "AsymmetricPrivateKey"]
+[[rules]]
+	description = "Generic Credential"
+	regex = '''(?i)(api_key|apikey|secret)(.{0,20})?['|"][0-9a-zA-Z]{16,45}['|"]'''
+	tags = ["key", "API", "generic"]
+[[rules]]
+	description = "Google API key"
+	regex = '''AIza[0-9A-Za-z\\-_]{35}'''
+	tags = ["key", "Google"]
+[[rules]]
+	description = "Heroku API key"
+	regex = '''(?i)heroku(.{0,20})?['"][0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}['"]'''
+	tags = ["key", "Heroku"]
+[[rules]]
+	description = "MailChimp API key"
+	regex = '''(?i)(mailchimp|mc)(.{0,20})?['"][0-9a-f]{32}-us[0-9]{1,2}['"]'''
+	tags = ["key", "Mailchimp"]
+[[rules]]
+	description = "Mailgun API key"
+	regex = '''(?i)(mailgun|mg)(.{0,20})?['"][0-9a-z]{32}['"]'''
+	tags = ["key", "Mailgun"]
+[[rules]]
+	description = "PayPal Braintree access token"
+	regex = '''access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}'''
+	tags = ["key", "Paypal"]
+[[rules]]
+	description = "Picatic API key"
+	regex = '''sk_live_[0-9a-z]{32}'''
+	tags = ["key", "Picatic"]
+[[rules]]
+	description = "SendGrid API Key"
+	regex = '''SG\.[\w_]{16,32}\.[\w_]{16,64}'''
+	tags = ["key", "SendGrid"]
+[[rules]]
+	description = "Slack Webhook"
+	regex = '''https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}'''
+	tags = ["key", "slack"]
+[[rules]]
+	description = "Stripe API key"
+	regex = '''(?i)stripe(.{0,20})?['\"][sk|rk]_live_[0-9a-zA-Z]{24}'''
+	tags = ["key", "Stripe"]
+[[rules]]
+	description = "Square access token"
+	regex = '''sq0atp-[0-9A-Za-z\-_]{22}'''
+	tags = ["key", "square"]
+[[rules]]
+	description = "Square OAuth secret"
+	regex = '''sq0csp-[0-9A-Za-z\\-_]{43}'''
+	tags = ["key", "square"]
+[[rules]]
+	description = "Twilio API key"
+	regex = '''(?i)twilio(.{0,20})?['\"][0-9a-f]{32}['\"]'''
+	tags = ["key", "twilio"]
+[allowlist]
+	description = "Allowlisted files"
+	files = ['''^\.?gitleaks.toml$''',
+	'''(.*?)(jpg|gif|doc|pdf|bin)$''',
+	'''(go.mod|go.sum)$''']
