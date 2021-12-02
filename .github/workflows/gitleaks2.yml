@@ -8,8 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
+        ref: 'alpha'
         fetch-depth: '0'
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
       with:
-         config-path: rules.toml
+        config-path: rules.toml
