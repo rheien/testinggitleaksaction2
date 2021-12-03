@@ -12,4 +12,4 @@ jobs:
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
       with:
-        config-path: rules.toml
+        config-path: .gitleaks2.yml
