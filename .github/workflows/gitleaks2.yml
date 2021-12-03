@@ -8,7 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '0'
+        #fetch-depth: '0'
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
       with:
