@@ -1,7 +1,5 @@
 admin-12345
 
-admin-asdfgj
-
 {
 “token”: {
 	“url”: “https://emplae……..”,
