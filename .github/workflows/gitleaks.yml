@@ -1,4 +1,4 @@
-name: gitleaks with checkout@v2
+name: gitleaks
 
 on: [pull_request]
 
@@ -11,5 +11,3 @@ jobs:
         fetch-depth: '0'    
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
-     # with:
-     #   config-path: .gitleaks2.yml
