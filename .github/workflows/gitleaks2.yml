@@ -8,8 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '0'
-    - run: git checkout HEAD^    
+        fetch-depth: '1'    
     - name: gitleaks-action
       uses: rheien/gitleaks-action@master
       with:
